@@ -31,8 +31,8 @@ var page = template.Must(template.New("graphiql").Parse(`<!DOCTYPE html>
 		root.classList.add('playgroundIn');
 		const wsProto = location.protocol == 'https:' ? 'wss:' : 'ws:'
 		GraphQLPlayground.init(root, {
-			endpoint: location.protocol + '//' + location.host + '{{.endpoint}}',
-			subscriptionsEndpoint: wsProto + '//' + location.host + '{{.endpoint }}',
+			endpoint: location.protocol + '//' + location.host + location.pathname+ '{{.endpoint}}',
+			subscriptionsEndpoint: wsProto + '//' + location.host +location.pathname+  '{{.endpoint }}',
 			settings: {
 				'request.credentials': 'same-origin'
 			}
